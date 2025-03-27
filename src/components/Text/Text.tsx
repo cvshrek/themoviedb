@@ -20,8 +20,8 @@ const createTextStyle = (props: CustomTextProps) => ({
       : FontSizes.font_16 + Dimens.dimen_4,
 });
 
-const CustomText: React.FC<CustomTextProps> = ({ ...props }) => {
-  return <Text style={createTextStyle(props)}>{props.children}</Text>;
+const CustomText: React.FC<CustomTextProps> = (props) => {
+  return <Text style={createTextStyle(props)} {...props}>{props.children}</Text>;
 };
 
 export default CustomText;

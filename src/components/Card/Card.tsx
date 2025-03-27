@@ -5,7 +5,14 @@ interface CardProps extends PressableProps {
 }
 
 const Card: React.FC<CardProps> = ({ children, ...props }) => (
-  <Pressable style={styles.container} {...props}>{children}</Pressable>
+  <Pressable
+    style={(state) =>
+      [styles.container, typeof props.style === 'function' ? props.style(state) : props.style]
+    }
+    {...props}
+  >
+    {children}
+  </Pressable>
 );
 
 export default Card;

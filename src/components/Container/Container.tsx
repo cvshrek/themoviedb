@@ -1,7 +1,7 @@
-import { View, ViewProps } from 'react-native';
+import { View, ViewProps, ViewStyle } from 'react-native';
 
 interface ContainerProps extends ViewProps {
-  containerStyle?: ViewProps['style'];
+  containerStyle?: ViewStyle;
   flex?: number;
   padding?: number;
   margin?: number;
@@ -9,6 +9,7 @@ interface ContainerProps extends ViewProps {
   alignItems?: 'center' | 'flex-start' | 'flex-end' | 'stretch' | 'baseline';
   flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   gap?: number;
+  backgroundColor?: string;
 }
 
 const createContainerStyle = (props: ContainerProps) => ({
@@ -19,6 +20,8 @@ const createContainerStyle = (props: ContainerProps) => ({
   justifyContent: props.justifyContent,
   alignItems: props.alignItems,
   gap: props.gap,
+  flexShrink: 1,
+  backgroundColor: props.backgroundColor,
   ...(props.style && typeof props.style === 'object' ? props.style : {}),
 });
 

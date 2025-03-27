@@ -19,11 +19,13 @@
       "@assets/*": ["src/assets/*"],
       "@configs": ["src/configs/index"],
       "@configs/*": ["src/configs/*"],
-      "@enums": ["src/constants/index"],
-      "@enums/*": ["src/constants/*"],
+      "@enums": ["src/enums/index"],
+      "@enums/*": ["src/enums/*"],
       "@models": ["src/models/index"],
       "@models/*": ["src/models/*"],
-      "@types/*": ["src/types/*"]
+      "@types/*": ["src/types/*"],
+      "@helpers": ["src/helpers/index"],
+      "@helpers/*": ["src/helpers/*"],
     }
   }
 }

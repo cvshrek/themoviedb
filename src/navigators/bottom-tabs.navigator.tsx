@@ -1,13 +1,24 @@
 import { Colors } from '@constants';
 import Icon from '@react-native-vector-icons/material-design-icons';
 import { createBottomTabNavigator, BottomTabBarButtonProps, BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
-import { HomeScreen, WatchlistScreen } from '@screens';
+import { createNativeStackNavigator, NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { HomeScreen, MovieDetailsScreen, WatchlistScreen } from '@screens';
 import { ReactNode } from 'react';
 
-export type BottomTabParamList = {
+export type HomeNavigationParamList = {
   HomeScreen: undefined;
+  MovieDetailsScreen: {
+    id: number
+  }
+} 
+
+export type BottomTabParamList = {
+  HomeStack: undefined;
   WatchListScreen: undefined;
 };
+
+export type HomeNavigationProp =
+  NativeStackNavigationProp<HomeNavigationParamList>;
 
 type TabIconProps = {
   color: string;
@@ -32,11 +43,27 @@ const setTabOptions = (options: TabOption): BottomTabNavigationOptions => ({
 });
 
 const MainTab = createBottomTabNavigator<BottomTabParamList>();
+const HomeStack = createNativeStackNavigator<HomeNavigationParamList>();
 
-function MainBottomTabs() {
+function HomeNavigator(): React.ReactElement {
+  return (
+    <HomeStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="HomeScreen">
+      <HomeStack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+      />
+      <HomeStack.Screen
+        name="MovieDetailsScreen"
+        component={MovieDetailsScreen}
+      />
+    </HomeStack.Navigator>
+  )
+}
+
+function MainBottomTabs(): React.ReactElement {
   return (
     <MainTab.Navigator screenOptions={{headerShown: false}}>
-      <MainTab.Screen name="HomeScreen" options={setTabOptions({ icon: renderTabIcon('home')})} component={HomeScreen} />
+      <MainTab.Screen name="HomeStack" options={setTabOptions({ icon: renderTabIcon('home')})} component={HomeNavigator} />
       <MainTab.Screen name="WatchListScreen" options={setTabOptions({ icon: renderTabIcon('bookmark') })} component={WatchlistScreen} />
     </MainTab.Navigator>
   );

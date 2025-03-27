@@ -20,6 +20,7 @@ module.exports = {
           '@configs': './src/configs',
           '@enums': './src/enums',
           '@models': './src/models',
+          '@helpers': './src/helpers',
         },
       },
     ],

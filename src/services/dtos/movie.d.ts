@@ -3,7 +3,7 @@ export type MovieSortBy = 'popularity.desc' | 'popularity.asc' | 'release_date.d
 export interface IRequestMovieList {
   page: number;
   type: MovieType;
-  search?: string;
+  query?: string;
   sort_by?: MovieSortBy;
 }
 

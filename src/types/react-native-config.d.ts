@@ -3,6 +3,7 @@ declare module 'react-native-config' {
     API_URL?: string;
     API_TOKEN?: string;
     ACCOUNT_ID?: string;
+    IMAGE_URL?: string;
   }
 
   export const Config: NativeConfig;

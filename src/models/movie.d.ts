@@ -1,3 +1,21 @@
+interface Genre {
+  "id": number,
+  "name": string
+}
+
+interface ProductionCompany {
+  "id": number,
+  "logo_path": string,
+  "name": string,
+  "origin_country": string
+}
+
+interface SpokenLanguages {
+  "english_name": string,
+  "iso_639_1": string,
+  "name": string
+}
+
 interface Movie {
   'adult': boolean,
   'backdrop_path': string,
@@ -12,5 +30,17 @@ interface Movie {
   'title': string,
   'video': boolean,
   'vote_average': number,
-  'vote_count': number
+  'vote_count': number,
+  "belongs_to_collection": string | null,
+  "budget": number,
+  "genres": Genre[],
+  "homepage": string,
+  "imdb_id":string,
+  "origin_country": string[],
+  "production_companies": ProductionCompany[],
+  "revenue": number,
+  "runtime": number,
+  "spoken_languages": SpokenLanguages[],
+  "status": string,
+  "tagline": string,
 }

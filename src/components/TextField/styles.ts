@@ -1,10 +1,9 @@
-import { Colors, Dimens } from "@constants";
+import { Colors, Dimens, Fonts, FontSizes } from "@constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
     backgroundColor: Colors.white,
-    borderRadius: Dimens.dimen_4,
     shadowColor: Colors.grey,
     shadowOffset: {
       width: 0,
@@ -13,7 +12,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 4,
     elevation: 4,
+    borderRadius: Dimens.dimen_4,
   },
+  input: {
+    padding: Dimens.dimen_12,
+    fontSize: FontSizes.font_16,
+    fontFamily: Fonts.PRIMARY_BOLD
+  }
 });
-
 export default styles;

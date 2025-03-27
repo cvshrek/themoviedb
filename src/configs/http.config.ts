@@ -2,8 +2,6 @@ import axios, {AxiosError} from 'axios';
 import {Alert} from 'react-native';
 import Config from 'react-native-config';
 
-console.log(Config.API_URL);
-
 const REQUEST_TIME_OUT = 30000;
 const instance = axios.create({
   timeout: REQUEST_TIME_OUT,
