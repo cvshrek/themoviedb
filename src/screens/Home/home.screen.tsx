@@ -10,6 +10,7 @@ import FastImage from '@d11/react-native-fast-image';
 import { MovieCategory } from '@enums';
 import { MovieSortBy } from '@services/dtos/movie';
 import StorageUtils from '@utils/stores.util';
+import { formatDateTime } from '@utils/datetime.util';
 
 const movieCategories: {label: string, value: MovieCategory}[] = [
   {label: 'Popular', value: MovieCategory.Popular},
@@ -43,7 +44,7 @@ function HomeScreen(): React.ReactElement {
         <Container padding={Dimens.dimen_16} gap={Dimens.dimen_16}>
           <Container>
             <Text isBold fontSize={FontSizes.font_14}>{item.title}</Text>
-            <Text color={Colors.grey} fontSize={FontSizes.font_14}>{item.release_date}</Text>
+            <Text color={Colors.grey} fontSize={FontSizes.font_14}>{formatDateTime(item.release_date, 'DD/MM/YYYY')}</Text>
           </Container>
           <Text numberOfLines={2} fontSize={FontSizes.font_14}>{item.overview}</Text>
         </Container>

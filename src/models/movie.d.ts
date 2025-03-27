@@ -21,7 +21,7 @@ interface Movie {
   'backdrop_path': string,
   'genre_ids': number[],
   'id': number,
-  'original_language': 'en',
+  'original_language': string,
   'original_title': string,
   'overview': string,
   'popularity': number,

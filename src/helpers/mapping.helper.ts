@@ -1,5 +1,5 @@
 class MappingHelper {
-  static mapLabelAsKey(key: string): Record<string, string> | string {
+  static mapLabelAsKey(key: string): string {
     return {
       'adult': 'Adult',
       'backdrop_path': 'Backdrop Path',
@@ -19,6 +19,7 @@ class MappingHelper {
       'popular': 'Popular',
       'upcoming': 'Upcoming',
       'now_playing': 'Now Playing',
+      'en': "English"
     }[key] ?? key;
   }
 }

@@ -9,13 +9,20 @@ export interface CustomTextProps extends TextProps {
   align?: 'left' | 'center' | 'right';
 }
 
+const getFontFamily = (props: CustomTextProps): string => {
+  if (props.isBold && props.fontStyle === 'italic') return Fonts.PRIMARY_BOLD_ITALIC;
+  if (props.isBold) return Fonts.PRIMARY_BOLD;
+  if (props.fontStyle === 'italic') return Fonts.PRIMARY_ITALIC;
+  return Fonts.PRIMARY_REGULAR;
+}
+
 const createTextStyle = (props: CustomTextProps) => ({
-  fontFamily: props.isBold ? Fonts.PRIMARY_BOLD : Fonts.PRIMARY_REGULAR,
-    fontSize: props.fontSize ?? FontSizes.font_16,
-    textAlign: props.align,
-    color: props.color ?? Colors.black,
-    flexShrink: 1,
-    lineHeight: props.fontSize
+  fontFamily: getFontFamily(props),
+  fontSize: props.fontSize ?? FontSizes.font_16,
+  textAlign: props.align,
+  color: props.color ?? Colors.black,
+  flexShrink: 1,
+  lineHeight: props.fontSize
       ? props.fontSize + Dimens.dimen_4
       : FontSizes.font_16 + Dimens.dimen_4,
 });
