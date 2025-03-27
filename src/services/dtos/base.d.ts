@@ -1,5 +1,12 @@
-interface IBaseResponse<T> {
-  status: number,
-  data: T,
-  message: string
+export interface IBaseListDTO<T> {
+  "dates": {
+    "maximum": string,
+    "minimum": string
+  },
+  "page": number,
+  "results": T[],
+  "total_pages": number,
+  "total_results": number
 }
+
+export interface IBaseDTO {}

@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "paths": {
       "@src/*": [".src/*"],
+      "@screens": ["src/screens/index"],
       "@screens/*": ["src/screens/*"],
       "@components": ["src/components/index"],
       "@components/*": ["src/components/*"],
@@ -18,10 +19,11 @@
       "@assets/*": ["src/assets/*"],
       "@configs": ["src/configs/index"],
       "@configs/*": ["src/configs/*"],
-      "@enums": ["src/enums/index"],
-      "@enums/*": ["src/enums/*"],
+      "@enums": ["src/constants/index"],
+      "@enums/*": ["src/constants/*"],
       "@models": ["src/models/index"],
-      "@models/*": ["src/models/*"]
+      "@models/*": ["src/models/*"],
+      "@types/*": ["src/types/*"]
     }
   }
 }
