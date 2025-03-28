@@ -1,4 +1,4 @@
-Before running please implement .env file with properties bellow:
+Before running please implement .env file in root project including properties bellow:
 
 - API_URL=https://api.themoviedb.org/3
 - IMAGE_URL=https://image.tmdb.org/t/p/original
