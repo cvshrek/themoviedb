@@ -5,9 +5,8 @@
 import { http } from "@configs";
 import Config from "react-native-config";
 
-
 class AccountService {
-  static getAccountDetails() {
+  static getAccountDetails(): Promise<Account> {
     return http.get(`/account/${Config.ACCOUNT_ID}`);
   }
 }

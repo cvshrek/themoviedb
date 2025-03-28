@@ -13,7 +13,7 @@ import MappingHelper from '@helpers/mapping.helper';
 import { FlatList, ScrollView } from 'react-native';
 
 function MovieDetailsScreen(): React.ReactElement {
-  const {movie, credits, recommendations, fetchMovie, fetchCredits, fetchRecommendations} = useMovieScreen();
+  const {movie, credits, recommendations, isWatchlist, fetchMovie, fetchCredits, fetchRecommendations, onWatchListPress} = useMovieScreen();
 
   useEffect(() => {
     fetchMovie();
@@ -86,8 +86,9 @@ function MovieDetailsScreen(): React.ReactElement {
               size='sm'
               type='outline'
               color={Colors.white}
-              title='Add To Watchlist'
+              title={isWatchlist ? 'Remove from Watchlist' : 'Add To Watchlist'}
               leftContent={<Icon name='bookmark' size={FontSizes.font_18} color={Colors.white} />}
+              onPress={onWatchListPress}
             />
           </Container>
         </Container>
@@ -108,6 +109,7 @@ function MovieDetailsScreen(): React.ReactElement {
             ItemSeparatorComponent={() => <Spacer space={Dimens.dimen_16} axis='horizontal' />}
             initialNumToRender={5}
             contentContainerStyle={styles.listContainer}
+            keyExtractor={item => item.id.toString()}
           />
         </Container>
         <Container backgroundColor={Colors.lightGrey} style={{height: 2}} />
@@ -128,6 +130,7 @@ function MovieDetailsScreen(): React.ReactElement {
             ItemSeparatorComponent={() => <Spacer space={Dimens.dimen_16} axis='horizontal' />}
             initialNumToRender={5}
             contentContainerStyle={styles.listContainer}
+            keyExtractor={item => item.id.toString()}
           />
         </Container>
       </ScrollView>

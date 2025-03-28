@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: verticalScale(44),
+    height: verticalScale(40),
     paddingHorizontal: Dimens.dimen_8
   },
   backButton: {

@@ -3,7 +3,7 @@ import Icon from '@react-native-vector-icons/material-design-icons';
 import { createBottomTabNavigator, BottomTabBarButtonProps, BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator, NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { HomeScreen, MovieDetailsScreen, WatchlistScreen } from '@screens';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 export type HomeNavigationParamList = {
   HomeScreen: undefined;
@@ -30,7 +30,11 @@ interface TabOption {
   button?: (props: BottomTabBarButtonProps) => ReactNode;
 }
 
-const renderTabIcon = (icon: 'home' | 'bookmark') => (props: TabIconProps) => <Icon size={props.size} name={icon} color={props.color} />;
+const renderTabIcon = (icon: 'home' | 'bookmark') => {
+  const TabIcon = (props: TabIconProps) => <Icon size={props.size} name={icon} color={props.color} />;
+  TabIcon.displayName = `TabIcon(${icon})`;
+  return TabIcon;
+};
 
 const setTabOptions = (options: TabOption): BottomTabNavigationOptions => ({
   tabBarLabel: options.label,

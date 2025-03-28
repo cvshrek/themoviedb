@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   image: {
     width: Dimens.dimen_72,
     height: Dimens.dimen_72,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
   },
   posterImage: {
     width: 95,

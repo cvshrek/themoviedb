@@ -7,7 +7,7 @@ const instance = axios.create({
   timeout: REQUEST_TIME_OUT,
   baseURL: Config.API_URL,
   headers: {
-    accept: 'application/json',
+    Accept: 'application/json',
     Authorization: `Bearer ${Config.API_TOKEN}`,
   },
 });
@@ -15,7 +15,6 @@ const instance = axios.create({
 instance.interceptors.response.use((response) => {
   return response.data;
 }, async function (error: AxiosError) {
-
   Alert.alert('Ops!', error.message);
 });
 

@@ -62,6 +62,7 @@ function HomeScreen(): React.ReactElement {
   ), []);
 
   const renderSeparator = useCallback(() => <Spacer space={Dimens.dimen_16} />, []);
+  
   return (
     <Container flex={1} backgroundColor={Colors.white} gap={Dimens.dimen_8}>
       <SafeAreaView edges={['top']} />
@@ -83,7 +84,7 @@ function HomeScreen(): React.ReactElement {
             contentContainerStyle={[styles.container, styles.listContainer]}
             ListFooterComponent={(
               !isFetching ?
-              <Container style={styles.listContainer} backgroundColor='transparent'>
+              <Container style={[styles.listContainer, { marginBottom: Dimens.dimen_24}]} backgroundColor='transparent'>
                 <Button defaultRadius title='Load More' onPress={onLoadMore} />
               </Container> : null
             )}

@@ -14,7 +14,7 @@ function useHomeScreen() {
 
   const requestRef = useRef<IRequestMovieList>({
     page: 1,
-    type: StorageUtils.getItem(Keys.selected_movie_cat) as MovieCategory,
+    type: StorageUtils.getItem(Keys.selected_movie_cat) as MovieCategory ?? 'popular',
     query: '',
     sort_by: 'popularity.desc'
   });

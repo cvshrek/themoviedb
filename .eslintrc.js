@@ -30,6 +30,7 @@ module.exports = {
     semi: ["error", "always"],
     "@typescript-eslint/semi": "off",
     "react/display-name": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
   }
 };

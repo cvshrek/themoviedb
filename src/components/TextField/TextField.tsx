@@ -2,6 +2,8 @@ import { Container } from "@components/Container";
 import { TextInput, TextInputProps, ViewStyle } from "react-native";
 import styles from './styles';
 import { Colors } from "@constants";
+import React from 'react';
+
 interface TextFieldProps extends TextInputProps {
   wraperStyle?: ViewStyle,
 }

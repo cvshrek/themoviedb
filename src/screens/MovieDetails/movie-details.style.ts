@@ -1,5 +1,5 @@
 import { Colors, Dimens } from '@constants';
-import { moderateScale, horizontalScale } from '@utils/mixins.util';
+import { horizontalScale } from '@utils/mixins.util';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({

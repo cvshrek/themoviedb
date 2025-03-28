@@ -41,29 +41,28 @@ function useMovieScreen() {
   }
 
   const onWatchListPress = () => {
+    if (!movie) return;
     if (checkWatchListExisted()) {
-      onWatchListRemove()
+      onWatchListRemove(movie?.id)
     } else {
-      const watchlistCollection = StorageUtils.getItem(Keys.watchlist_collection)
-      const watchlists = StorageUtils.getItem(Keys.watchlist_storage)
-
-      if (watchlistCollection && watchlists && movie) {
-        const parsedCollection = JSON.parse(watchlistCollection) ?? {};
-        const parsedWatchlists = [...JSON.parse(watchlists), movie];
-        parsedCollection[movie.id] = true;
-        StorageUtils.setItem(Keys.watchlist_collection, JSON.stringify(parsedCollection));
-        StorageUtils.setItem(Keys.watchlist_storage, JSON.stringify(parsedWatchlists))
-      }
+      const watchlistCollection = StorageUtils.getItem(Keys.watchlist_collection) ?? '{}'
+      const watchlists = StorageUtils.getItem(Keys.watchlist_storage) ?? '[]'
+      const parsedCollection = JSON.parse(watchlistCollection);
+      const parsedWatchlists = [...JSON.parse(watchlists), movie];
+      parsedCollection[movie.id] = true;
+      StorageUtils.setItem(Keys.watchlist_collection, JSON.stringify(parsedCollection));
+      StorageUtils.setItem(Keys.watchlist_storage, JSON.stringify(parsedWatchlists))
+      setIsWatchlist(true);
     }
   }
 
-  const onWatchListRemove = () => {
+  const onWatchListRemove = (id: number) => {
     const watchlistCollection = StorageUtils.getItem(Keys.watchlist_collection)
     const watchlists = StorageUtils.getItem(Keys.watchlist_storage)
-    if (watchlistCollection && watchlists && movie) {
+    if (watchlistCollection && watchlists) {
       const parsedCollection = JSON.parse(watchlistCollection);
-      const parsedWatchlists = JSON.parse(watchlists).filter((item: Movie) => item.id === movie.id);
-      parsedCollection[movie.id] = false;
+      const parsedWatchlists = JSON.parse(watchlists).filter((item: Movie) => item.id !== id);
+      parsedCollection[id] = false;
       StorageUtils.setItem(Keys.watchlist_collection, JSON.stringify(parsedCollection));
       StorageUtils.setItem(Keys.watchlist_storage, JSON.stringify(parsedWatchlists))
     }
@@ -77,7 +76,8 @@ function useMovieScreen() {
     fetchMovie,
     fetchCredits,
     fetchRecommendations,
-    onWatchListPress
+    onWatchListPress,
+    onWatchListRemove
   }
 }
 
