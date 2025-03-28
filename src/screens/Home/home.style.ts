@@ -8,11 +8,11 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   posterImage: {
-    width: '25%',
-    height: '100%',
+    width: 95,
+    height: 140,
     resizeMode: 'cover',
-    borderTopLeftRadius: Dimens.dimen_8,
-    borderBottomLeftRadius: Dimens.dimen_8,
+    borderTopLeftRadius: Dimens.dimen_4,
+    borderBottomLeftRadius: Dimens.dimen_4,
   },
   container: {
     paddingHorizontal: Dimens.dimen_32,

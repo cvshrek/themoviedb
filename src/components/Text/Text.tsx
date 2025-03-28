@@ -28,7 +28,7 @@ const createTextStyle = (props: CustomTextProps) => ({
 });
 
 const CustomText: React.FC<CustomTextProps> = (props) => {
-  return <Text style={createTextStyle(props)} {...props}>{props.children}</Text>;
+  return <Text  {...props} style={[createTextStyle(props), props.style]}>{props.children}</Text>;
 };
 
 export default CustomText;

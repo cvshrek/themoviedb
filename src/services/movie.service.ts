@@ -11,7 +11,10 @@ class MovieService {
     return http.get(`/movie/${id}`);
   }
   static getMovieCredits(id: number): Promise<IResponseCredit> {
-    return http.get(`/movie/${id}/credits`)
+    return http.get(`/movie/${id}/credits`);
+  }
+  static getMovieRecommendations(id: number): Promise<IBaseListDTO<Movie>> {
+    return http.get(`/movie/${id}/recommendations`);
   }
 }
 

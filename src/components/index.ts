@@ -6,3 +6,5 @@ export * from './Spacer';
 export * from './CollapsePicker';
 export * from './TextField';
 export * from './AppLogo';
+export * from './Header';
+export * from './ProgressCircle';

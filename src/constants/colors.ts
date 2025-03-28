@@ -7,4 +7,5 @@ export const Colors = {
   grey:'#999999',
   lightGrey:'#F5F5F5',
   darkGrey:'#333333',
+  greenLight: '#44ff8f'
 } as const;

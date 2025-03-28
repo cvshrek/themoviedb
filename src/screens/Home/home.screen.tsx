@@ -31,7 +31,16 @@ const movieSortByOptions:{label: string, value: MovieSortBy}[] = [
 ];
 
 function HomeScreen(): React.ReactElement {
-  const {movies, activeSearchBtn, onLoadMore, fetchMovies, onSearchChange, onSearchSubmit, onItemPress} = useHomeScreen();
+  const {
+    movies,
+    activeSearchBtn,
+    isFetching,
+    onLoadMore,
+    fetchMovies,
+    onSearchChange,
+    onSearchSubmit,
+    onItemPress,
+  } = useHomeScreen();
 
   useEffect(() => {
     fetchMovies();
@@ -43,7 +52,7 @@ function HomeScreen(): React.ReactElement {
         <FastImage source={{uri: PathHelper.getImgPath(item.backdrop_path)}} style={styles.posterImage} />
         <Container padding={Dimens.dimen_16} gap={Dimens.dimen_16}>
           <Container>
-            <Text isBold fontSize={FontSizes.font_14}>{item.title}</Text>
+            <Text isBold>{item.title}</Text>
             <Text color={Colors.grey} fontSize={FontSizes.font_14}>{formatDateTime(item.release_date, 'DD/MM/YYYY')}</Text>
           </Container>
           <Text numberOfLines={2} fontSize={FontSizes.font_14}>{item.overview}</Text>
@@ -73,9 +82,10 @@ function HomeScreen(): React.ReactElement {
             ItemSeparatorComponent={renderSeparator}
             contentContainerStyle={[styles.container, styles.listContainer]}
             ListFooterComponent={(
+              !isFetching ?
               <Container style={styles.listContainer} backgroundColor='transparent'>
                 <Button defaultRadius title='Load More' onPress={onLoadMore} />
-              </Container>
+              </Container> : null
             )}
           />
         </Container>

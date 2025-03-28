@@ -1,5 +1,5 @@
-export const displayText = (text?: string | number): string | number => {
-  return text ?? '...'
+export const displayText = (text?: string | number): string => {
+  return text?.toString() ?? '...'
 }
 
 export const displayDurationFromMinute = (minute?: number): string => {
